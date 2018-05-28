@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <!-- DATE -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/news_timeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            tools:text="07:13"/>
+
+        <TextView
+            android:id="@+id/news_dateText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            tools:text="2018-05-01"/>
+    </LinearLayout>
+
+    <!-- TEXT -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- HEADLINE -->
+        <TextView
+            android:id="@+id/news_headLineText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            tools:text="Alastair Campbell berates Labour over local election results"/>
+
+        <!-- TRAILTEXT -->
+        <TextView
+            android:id="@+id/news_trailText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:paddingTop="4dp"
+            tools:text="Tony Blair’s former adviser launches broadside against party unable to beat shambolic Tories"/>
+
+        <!-- Footer -->
+        <TextView
+            android:id="@+id/news_authorText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:textAllCaps="true"
+            android:textAlignment="viewEnd"
+            android:paddingTop="4dp"
+            tools:text="By Jamie Grierson"/>
+    </LinearLayout>
+</LinearLayout>
