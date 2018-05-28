@@ -2,14 +2,13 @@ package eu.grassnick.guardiannews;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
-import android.util.Log;
 import android.text.Html;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.URL;
 import java.util.ArrayList;
 
 public class NewsArticleLoader extends AsyncTaskLoader<ArrayList<NewsArticle>> {
@@ -23,23 +22,18 @@ public class NewsArticleLoader extends AsyncTaskLoader<ArrayList<NewsArticle>> {
         apiQueryUrl = url;
     }
 
-
     @Override
     public ArrayList<NewsArticle> loadInBackground() {
         ArrayList<NewsArticle> results = new ArrayList<>();
 
-        //HttpHandler handler = new HttpHandler();
-        URL url = HttpHandler.parseUrl(apiQueryUrl);
 
-        //Get json data from API via http request
-        String rawData = new HttpHandler().makeGET(url);
+        //parse url and get json data from API via http request
+        String rawData = new HttpHandler().makeGET(HttpHandler.parseUrl(apiQueryUrl));
 
         if (rawData != null) {
-            //parse json data into NewsArticle ArrayList
+            //try to parse json data into NewsArticle ArrayList
             try {
-                JSONObject jsonData = new JSONObject(rawData);
-                JSONObject jsonResponse = jsonData.getJSONObject("response");
-                JSONArray jsonResults = jsonResponse.getJSONArray("results");
+                JSONArray jsonResults = new JSONObject(rawData).getJSONObject("response").getJSONArray("results");
 
                 for (int i = 0; i < jsonResults.length(); i++) {
                     JSONObject current = jsonResults.getJSONObject(i);
@@ -57,7 +51,6 @@ public class NewsArticleLoader extends AsyncTaskLoader<ArrayList<NewsArticle>> {
                     } catch (JSONException je) {
                         author = "unknown";
                     }
-
 
                     results.add(new NewsArticle(time, date, headline, trailText, articleUrl, author));
                 }
