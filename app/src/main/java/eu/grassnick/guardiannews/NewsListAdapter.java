@@ -38,12 +38,14 @@ public class NewsListAdapter extends ArrayAdapter<NewsArticle> {
         TextView headline = convertView.findViewById(R.id.news_headLineText);
         TextView trailText = convertView.findViewById(R.id.news_trailText);
         TextView author = convertView.findViewById(R.id.news_authorText);
+        TextView section = convertView.findViewById(R.id.news_section_name);
 
         time.setText(article.getTimeStr());
         date.setText(article.getDateStr());
         headline.setText(article.getHeadline());
         trailText.setText(article.getTrailText());
         author.setText("by " + article.getAuthor());
+        section.setText(article.getSectionName());
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override

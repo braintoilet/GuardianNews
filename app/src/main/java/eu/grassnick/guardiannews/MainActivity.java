@@ -8,9 +8,9 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,13 +23,20 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<NewsArticle>>{
     private static final String TAG = "MainActivity";
 
-    ListView listView;
-    ProgressBar loadingSpinner;
-    TextView emptyText;
-    NewsListAdapter newsListAdapter;
+    private ListView listView;
+    private ProgressBar loadingSpinner;
+    private TextView emptyText;
+    private NewsListAdapter newsListAdapter;
 
     private static final String apiBaseUrl = "http://content.guardianapis.com/search";
     private static final String apiKey = "9781c31d-726d-4b63-9a0e-8adad5f3cc65";
+
+    /* NOTE FOR THE REVIEWING MENTOR:
+     *  Thanks for the tip with the butterknife library. I used it already in my past Projects.
+     *  Due to the following Project Requirement i choose to not use it this time:
+     *   "The intent of this project is to give you practice writing raw Java code using the necessary classes provided by the Android framework;
+     *   therefore, the use of external libraries for the core functionality will not be permitted to complete this project."
+     * */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

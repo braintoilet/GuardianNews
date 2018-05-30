@@ -37,6 +37,7 @@ public class NewsArticleLoader extends AsyncTaskLoader<ArrayList<NewsArticle>> {
 
                 for (int i = 0; i < jsonResults.length(); i++) {
                     JSONObject current = jsonResults.getJSONObject(i);
+                    String sectionName = current.getString("sectionName");
                     String dateTime = current.getString("webPublicationDate");
                     String date = dateTime.split("T")[0];
                     String time = dateTime.split("T")[1].substring(0, 5);
@@ -52,7 +53,7 @@ public class NewsArticleLoader extends AsyncTaskLoader<ArrayList<NewsArticle>> {
                         author = "unknown";
                     }
 
-                    results.add(new NewsArticle(time, date, headline, trailText, articleUrl, author));
+                    results.add(new NewsArticle(time, date, headline, trailText, articleUrl, author, sectionName));
                 }
             } catch (final JSONException e) {
                 Log.e(TAG, "loadInBackground: ", e);

@@ -9,14 +9,16 @@ public class NewsArticle {
     private String mTrailText;
     private String mArticleUrl;
     private String mAuthor;
+    private String mSectionName;
 
-    public NewsArticle(String time, String date, String headline, String trailText, String articleUrl, String author){
+    public NewsArticle(String time, String date, String headline, String trailText, String articleUrl, String author, String sectionName) {
         mTimeStr = time;
         mDateStr = date;
         mHeadline = headline;
         mTrailText = trailText;
         mArticleUrl = articleUrl;
         mAuthor = author;
+        mSectionName = sectionName;
     }
 
     public String getTimeStr() {
@@ -41,5 +43,9 @@ public class NewsArticle {
 
     public String getAuthor() {
         return mAuthor;
+    }
+
+    public String getSectionName() {
+        return mSectionName;
     }
 }
